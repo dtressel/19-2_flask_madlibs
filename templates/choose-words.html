@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Choose-Words{% endblock %}
+
+{% block content %}
+    <h3>{{story}}</h3>
+    <p>Choose Words:</p>
+    <form action="/story">
+        {% for prompt in prompts %}
+        <label for="{{prompt}}">{{prompt}}:</label>
+        <input type="text", name="{{prompt}}">
+        <br>
+        {% endfor %}
+        <input type="hidden", name="story_name", value="{{story}}">
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
